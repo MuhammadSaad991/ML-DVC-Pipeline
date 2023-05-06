@@ -1,6 +1,6 @@
 # ML-DVC-Pipeline
 
-# Initialize a new Git repository:
+#### Initialize a new Git repository:
 `git init`
 # Initialize DVC in project directory:
 `dvc init`
