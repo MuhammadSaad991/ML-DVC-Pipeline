@@ -14,5 +14,5 @@
 
 # git commit .dvc/config -m "Configure remote stroage"
 ## Pushes the tracked data files to the remote storage:
-# dvc push
-`pip install -r requirements.txt`
+# `dvc push`
+
