@@ -18,7 +18,7 @@ else:
             df.to_csv("./data/creditcard.csv")
 
         
-if df.empty:
+if not df.empty:
     subprocess.run(['kaggle', 'datasets', 'download', '-d', 'mlg-ulb/creditcardfraud'])
     
     with zipfile.ZipFile('./creditcardfraud.zip', 'r') as zip_ref:
