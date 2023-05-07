@@ -14,6 +14,9 @@ if os.path.isfile(file_path):
 else:
     with dvc.api.open(path=file_path, mode='r', remote=remote, repo='.') as fd:
         df = pd.read_csv(fd)
+        if df.empty:
+            df.to_csv("./data/creditcard.csv")
+
         
 if df.empty:
     subprocess.run(['kaggle', 'datasets', 'download', '-d', 'mlg-ulb/creditcardfraud'])
