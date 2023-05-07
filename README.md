@@ -18,3 +18,5 @@
 #### Pushes the tracked data files to the remote storage:
 `dvc push`
 
+# DVC Pipeline Automate
+`dvc run -n data -d get_data.py -o creditcard.csv --no-exec python get_data.py`
