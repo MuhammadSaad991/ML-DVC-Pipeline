@@ -1,3 +1,6 @@
+# Credit Card Fraud Detection
+#### About Dataset
+#### Kaggle dataset credit card companies are able to recognize fraudulent credit card transactions so that customers are not charged for items that they did not purchase.
 # ML-DVC-Pipeline
 
 #### Initialize a new Git repository:
@@ -18,5 +21,5 @@
 #### Pushes the tracked data files to the remote storage:
 `dvc push`
 
-# DVC Pipeline Automate
+#### DVC Pipeline Automate
 `dvc run -n data -d get_data.py -o creditcard.csv --no-exec python get_data.py`
