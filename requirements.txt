@@ -3,3 +3,4 @@ pandas
 numpy
 catboost
 dvc
+dvc_gdrive
