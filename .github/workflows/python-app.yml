@@ -23,7 +23,7 @@ jobs:
           dvc remote modify storage --local password ${{ secrets.GDRIVE_SECRET }}
           dvc pull
       
-      - name: Run the pipeline with DVC 
+      - name: Run the pipeline with DVC
         run: |
           dvc repro
           git fetch --prune
