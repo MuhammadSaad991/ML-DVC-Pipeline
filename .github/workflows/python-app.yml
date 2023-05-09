@@ -1,17 +1,22 @@
 name: Machine Learning Automate Python application
-on: [push]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
   run:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Running_updates
-        env: 
-          GH_TOKEN: ${{ github.token }}
+      
+      - name: Install Dependencies
         run: |
           make install
-     - name: Pull data from DVC
+      
+      - name: Pull data from DVC
         run: |
           dvc remote modify origin --local auth basic
           dvc remote modify origin --local user ${{ secrets.GDRIVE_ID }}
@@ -19,7 +24,9 @@ jobs:
           dvc pull
       
       - name: Run the pipeline with DVC
+        run: |
           dvc repro
           git fetch --prune
           dvc metrics diff --show-md main > report.md
           gh pr comment ${{github.event.pull_request.number}} -F report.md
+
