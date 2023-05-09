@@ -10,7 +10,15 @@ jobs:
         env: 
           GH_TOKEN: ${{ github.token }}
         run: |
-          make install 
+          make install
+     - name: Pull data from DVC
+        run: |
+          dvc remote modify origin --local auth basic
+          dvc remote modify origin --local user ${{ secrets.GDRIVE_ID }}
+          dvc remote modify origin --local password ${{ secrets.GDRIVE_SECRET }}
+          dvc pull
+      
+      - name: Run the pipeline with DVC
           dvc repro
           git fetch --prune
           dvc metrics diff --show-md main > report.md
