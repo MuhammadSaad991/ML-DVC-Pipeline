@@ -18,6 +18,7 @@ jobs:
       
       - name: Pull data from DVC
         run: |
+          dvc remote modify storage url 'https://drive.google.com/drive/u/0/folders/10VsJZObso55tfLypybJMss7AG0NWfvng'
           dvc remote modify storage --local auth basic
           dvc remote modify storage --local user ${{ secrets.GDRIVE_ID }}
           dvc remote modify storage --local password ${{ secrets.GDRIVE_SECRET }}
