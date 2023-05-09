@@ -16,16 +16,3 @@ stages:
     - path: model.pkl
       md5: 7d85aeb02dae798ec14b00c5e5adac2c
       size: 2087834
-  Preprocessing:
-    cmd: python src/preprocessing_data.py
-    deps:
-    - path: data/creditcard.csv
-      md5: e90efcb83d69faf99fcab8b0255024de
-      size: 150828752
-    - path: src/preprocessing_data.py
-      md5: 624d39213388265686542e2b645e5081
-      size: 1265
-    outs:
-    - path: data/data_preprocessed.csv
-      md5: f6fc2750042521a3efd18107d8ce33ab
-      size: 160307294
