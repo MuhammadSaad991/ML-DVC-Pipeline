@@ -18,10 +18,9 @@ jobs:
       
       - name: Pull data from DVC
         run: |
-          dvc remote modify storage url 'https://drive.google.com/drive/u/0/folders/10VsJZObso55tfLypybJMss7AG0NWfvng'
           dvc remote modify storage --local auth basic
-          dvc remote modify storage --local user ${{ secrets.GDRIVE_ID }}
-          dvc remote modify storage --local password ${{ secrets.GDRIVE_SECRET }}
+          dvc remote modify storage --local gdrive_client_id ${{ secrets.GDRIVE_CLIENT_ID }}
+          dvc remote modify storage --local gdrive_client_secret ${{ secrets.GDRIVE_CLIENT_SECRET }}
           dvc pull
       
       - name: Run the pipeline with DVC
@@ -30,4 +29,3 @@ jobs:
           git fetch --prune
           dvc metrics diff --show-md main > report.md
           gh pr comment ${{github.event.pull_request.number}} -F report.md
-
