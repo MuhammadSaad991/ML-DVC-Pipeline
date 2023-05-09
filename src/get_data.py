@@ -19,6 +19,10 @@ else:
         df = pd.read_csv(fd)
         print(df.head(3))
 
+        print("data shape gdrive",df.shape)
+
+        df.to_csv("./data/creditcard.csv")
+
         if df.empty:
             subprocess.run(['kaggle', 'datasets', 'download', '-d', 'mlg-ulb/creditcardfraud'])
             
