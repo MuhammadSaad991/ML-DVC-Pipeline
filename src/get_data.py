@@ -46,7 +46,7 @@ else:
 # git add .gitignore data.csv.dvc
 # git commit -m "Add data"
 
-# dvc remote add -d storage gdrive://1W4VEkftEoGvWedVK1LSUEQuwEkrxdBcJ
+# dvc remote add -d storage gdrive://
 # git commit .dvc/config -m "Configure remote stroage"
 
 # dvc push
