@@ -25,7 +25,7 @@ else:
             with zipfile.ZipFile('./creditcardfraud.zip', 'r') as zip_ref:
                 zip_ref.extractall('./data')
             os.remove("creditcardfraud.zip")
-           
+
 
         
 
