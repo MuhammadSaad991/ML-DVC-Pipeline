@@ -35,8 +35,10 @@ VERBOSE_EVAL = 50 #Print out metric result
 
 
 if os.path.isfile("data/creditcard.csv"):
+    print("Train file Data access locally")
     df = pd.read_csv('./data/data_preprocessed.csv')
 else:
+    print("Train file Data access locally")
     with dvc.api.open(url=file_path,remote='storage',mode='r',repo='.') as fd:
         df = pd.read_csv(fd)
 
