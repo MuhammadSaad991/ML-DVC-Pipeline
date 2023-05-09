@@ -18,6 +18,7 @@ jobs:
       
       - name: Pull data from DVC
         run: |
+          dvc remote add --default --force storage gdrive://10VsJZObso55tfLypybJMss7AG0NWfvng
           dvc remote modify storage --local gdrive_client_id ${{ secrets.GDRIVE_CLIENT_ID }}
           dvc remote modify storage --local gdrive_client_secret ${{ secrets.GDRIVE_CLIENT_SECRET }}
           dvc pull
