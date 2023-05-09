@@ -18,9 +18,9 @@ jobs:
       
       - name: Pull data from DVC
         run: |
-          dvc remote modify origin --local auth basic
-          dvc remote modify origin --local user ${{ secrets.GDRIVE_ID }}
-          dvc remote modify origin --local password ${{ secrets.GDRIVE_SECRET }}
+          dvc remote modify storage --local auth basic
+          dvc remote modify storage --local user ${{ secrets.GDRIVE_ID }}
+          dvc remote modify storage --local password ${{ secrets.GDRIVE_SECRET }}
           dvc pull
       
       - name: Run the pipeline with DVC 
