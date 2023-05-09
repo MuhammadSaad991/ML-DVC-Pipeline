@@ -15,19 +15,14 @@ if os.path.isfile(file_path):
     print(df.head(3))
     df.to_csv("./data/creditcard.csv")
 else:
-    subprocess.run(['kaggle', 'datasets', 'download', '-d', 'mlg-ulb/creditcardfraud'])
-    with zipfile.ZipFile('./creditcardfraud.zip', 'r') as zip_ref:
-        zip_ref.extractall('./data')
-    os.remove("creditcardfraud.zip")
-    
-    # with dvc.api.open(path=file_path, mode='r', remote=remote, repo='.') as fd:
-    #     print("Access data gdrive")
-    #     df = pd.read_csv(fd)
-    #     print(df.head(3))
+    with dvc.api.open(path=file_path, mode='r', remote=remote, repo='.') as fd:
+        print("Access data gdrive")
+        df = pd.read_csv(fd)
+        print(df.head(3))
 
-    #     print("data shape gdrive",df.shape)
+        print("data shape gdrive",df.shape)
 
-    #     df.to_csv("./data/creditcard.csv")
+        df.to_csv("./data/creditcard.csv")
 
         # if df.empty:
         #     subprocess.run(['kaggle', 'datasets', 'download', '-d', 'mlg-ulb/creditcardfraud'])
