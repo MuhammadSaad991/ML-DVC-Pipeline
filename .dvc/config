@@ -3,3 +3,4 @@
     autostage = true
 ['remote "storage"']
     url = gdrive://1W4VEkftEoGvWedVK1LSUEQuwEkrxdBcJ
+    gdrive_acknowledge_abuse = true

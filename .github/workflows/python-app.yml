@@ -22,7 +22,7 @@ jobs:
           dvc remote modify storage --local gdrive_client_id ${{ secrets.GDRIVE_CLIENT_ID }}
           dvc remote modify storage --local gdrive_client_secret ${{ secrets.GDRIVE_CLIENT_SECRET }}
           dvc pull
-      
+          
       - name: Run the pipeline with DVC
         run: |
           dvc repro
